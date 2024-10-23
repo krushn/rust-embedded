@@ -1,0 +1,20 @@
+[package]
+name = "rust-embedded"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+embedded-hal = "1.0.0"        # Version may vary depending on your use case
+panic-halt = "0.2"            # Panic handler for embedded systems
+cortex-m-rt = "0.7.3"           # For cortex-m runtime
+rp2040-hal = "0.10.2"          # HAL for the Raspberry Pi Pico (RP2040 chip)
+rp-pico = "0.9.0"             # BSP for Raspberry Pi Pico
+
+[target.thumbv6m-none-eabi]
+runner = "probe-rs-cli run --chip RP2040"  # Optional, for flashing to the Pico
+
+[build]
+target = "thumbv6m-none-eabi"
+
+#[target.thumbv6m-none-eabi]
+#linker = "arm-none-eabi-gcc"
